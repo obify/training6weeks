@@ -1,0 +1,10 @@
+server:
+  port: 7001
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: BOOK-SERVICE
+  zipkin:
+    base-url: http://127.0.0.1:9411/

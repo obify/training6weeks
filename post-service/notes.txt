@@ -1,0 +1,3 @@
+https://www.concretepage.com/spring-5/spring-resttemplate-getforentity
+https://www.concretepage.com/spring-5/spring-resttemplate-exchange
+https://github.com/ranjanpandeysbp/spring-data-jpa-crud/blob/rest-template/src/main/java/com/asb/example/service/PostServiceImpl.java

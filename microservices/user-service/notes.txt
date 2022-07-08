@@ -1,0 +1,45 @@
+1. Generate spring initializer project
+2. Add spring-cloud-starter-netflix-eureka-server dependency
+3. Download and add to Intellij
+4. In main class add @EnableEurekaServer
+5. In application.properties file add below
+server.port=8761 (default port)
+eureka.client.register-with-eureka=false (becz this is server so it does not have to register itself)
+eureka.client.fetch-registry=false (becz this is server so it does not have to register itself)
+
+In application.yml file
+server:
+  port:8761
+eureka:
+  client:
+    register-with-eureka:false
+    fetch-registry:false
+
+6. In the client services (order, user, book) add eureka client dependency
+
+<spring-cloud.version>2021.0.3</spring-cloud.version>
+
+Add below dependency
+spring-cloud-starter-netflix-eureka-client
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+eureka.client.instance.hostname=localhost
+spring.application.name=BOOK-SERVICE
+
+7. Start Discovery Service and hit http://localhost:8761/
+8. Start Book Service
+9. Change name to BOOK-SERVICE instead of url
